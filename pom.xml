@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cd-wildfly</groupId>
 	<artifactId>cd-wildfly</artifactId>
@@ -42,7 +40,6 @@
 				<updatePolicy>never</updatePolicy>
 			</snapshots>
 		</repository>
-
 	</repositories>
 	<dependencies>
 		<dependency>
@@ -75,49 +72,81 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.14.1</version>
-					<configuration>
-					<argLine>-Xmx1124m -Xms256m -Djboss.socket.binding.port-offset=100</argLine>
-					<systemPropertyVariables>
-						<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-						<jboss.home>${jboss.home}</jboss.home>
-						<module.path>${jboss.home}/modules</module.path>
-					</systemPropertyVariables>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.wildfly.plugins</groupId>
-				<artifactId>wildfly-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>unpack</id>
-						<phase>process-test-classes</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
+	<profiles>
+		<profile>
+			<id>wildfy81-embedded</id>
+			<!-- the dependencies for Wildfly8.1  -->
+			<dependencies>
+				<dependency>
+					<groupId>org.wildfly</groupId>
+					<artifactId>wildfly-arquillian-container-embedded</artifactId>
+					<version>8.1.0.Final</version>
+				</dependency>
+				<dependency>
+					<groupId>org.wildfly</groupId>
+					<artifactId>wildfly-embedded</artifactId>
+					<version>8.1.0.Final</version>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<!-- You need the maven dependency plugin to download locally a zip with the server, unless you provide your own, it will download under the /target directory -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<version>2.8</version>
+						<executions>
+							<execution>
+								<id>unpack</id>
+								<phase>process-test-classes</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>org.wildfly</groupId>
+											<artifactId>wildfly-dist</artifactId>
+											<version>8.1.0.Final</version>
+											<type>zip</type>
+											<overWrite>false</overWrite>
+											<outputDirectory>target</outputDirectory>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.17</version>
 						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>org.wildfly</groupId>
-									<artifactId>wildfly-dist</artifactId>
-									<version>8.1.0.Final</version>
-									<type>zip</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>target</outputDirectory>
-								</artifactItem>
-							</artifactItems>
+							<!-- Fork every test because it will launch a separate AS instance -->
+							<forkMode>always</forkMode>
+							<systemPropertyVariables>
+								<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+								<!-- the maven dependency plugin will have already downloaded the server on /target -->
+								<jboss.home>${project.basedir}/target/wildfly-8.1.0.Final</jboss.home>
+								<module.path>${project.basedir}/target/wildfly-8.1.0.Final/modules</module.path>
+							</systemPropertyVariables>
+							<redirectTestOutputToFile>false</redirectTestOutputToFile>
 						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build> 
+					</plugin>
+					<!--plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>1.0.2.Final</version>
+						<configuration>
+							<domain>
+								<server-groups>
+									<server-group>main-server-group</server-group>
+								</server-groups>
+							</domain>
+						</configuration>
+					</plugin-->
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>

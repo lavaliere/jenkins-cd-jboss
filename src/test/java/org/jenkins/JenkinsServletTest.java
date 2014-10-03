@@ -47,9 +47,9 @@ public class JenkinsServletTest {
   }
 
   @Test
-  public void should_be_deployed2() throws FailingHttpStatusCodeException, MalformedURLException, IOException {
+  public void testHelloJenkins() throws FailingHttpStatusCodeException, MalformedURLException, IOException {
      WebClient webClient = new WebClient();
-     TextPage page = webClient.getPage(base + "/JenkinsServlet?name=jenkins");
-     assertEquals("Hello jenkins", page.getContent());
+     TextPage page = webClient.getPage(base + "/JenkinsServlet?name=Jenkins");
+     assertEquals("Hello Jenkins", page.getContent());
   }
 }

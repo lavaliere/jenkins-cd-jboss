@@ -1,12 +1,9 @@
-Continuous Delivery using Jenkins (JEE, JBoss, Wildfly)
-=========================================================================
+# Continuous Delivery using Jenkins
 
-# Getting Started
+## Getting Started
+
 
 ```
-mvn clean package
-target/wildfly-8.1.0.Final/bin/domain.sh
-mvn wildfly:deploy
-target/wildfly-8.1.0.Final/bin/jboss-cli.sh -c --command="deploy target/cd-wildfly-1.0.war --all-server-groups"
+mvn clean -Pwildfy81-embedded package
 ```
 
