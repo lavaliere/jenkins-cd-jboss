@@ -133,6 +133,11 @@
 							<redirectTestOutputToFile>false</redirectTestOutputToFile>
 						</configuration>
 					</plugin>
+                    <plugin>
+                        <groupId>org.wildfly.plugins</groupId>
+                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <version>1.0.1.Final</version>
+                    </plugin>
 					<!--plugin>
 						<groupId>org.wildfly.plugins</groupId>
 						<artifactId>wildfly-maven-plugin</artifactId>
