@@ -165,11 +165,4 @@
             <url>nexus.nexus.dev.wildfly.io:8081/nexus/content/repositories/wildfly-release/</url>
         </repository>
     </distributionManagement>
-    <servers>
-        <server>
-            <id>wildfly-release</id>
-            <username>admin</username>
-            <password>admin123</password>
-        </server>
-    </servers>
 </project>
