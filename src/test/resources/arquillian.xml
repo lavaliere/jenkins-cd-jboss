@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://jboss.org/schema/arquillian"
     xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+    <defaultProtocol type="Servlet 3.0" />
+    <container qualifier="jboss" default="true">
+        <configuration>
+            <property name="managementAddress">localhost</property>
+            <property name="managementPort">9999</property>
+        </configuration>
+    </container>
 
+<!--
 <container qualifier="jboss" default="true">
     <configuration>
         <property name="managementAddress">api-team-1.jenkins-enterprise.dev.beedemo.io</property>
@@ -16,6 +24,8 @@
     <property name="dockerHost">localhost</property>
     <property name="dockerPort">2375</property>
 </extension>
+
+ -->
 
 <!-- <arquillian xmlns="http://jboss.org/schema/arquillian" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
   <container qualifier="arquillian-wildfly-remote"/>
