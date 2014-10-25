@@ -170,7 +170,7 @@
         <repository>
             <id>nexus</id>
             <name>wildfly-release</name>
-            <url>scp://nexus.nexus.dev.wildfly.io/nexus/content/repositories/wildfly-release/</url>
+            <url>scp://nexus.nexus.dev.wildfly.io:8081/nexus/content/repositories/wildfly-release/</url>
         </repository>
     </distributionManagement>
 </project>
