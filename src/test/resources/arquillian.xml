@@ -4,7 +4,7 @@
 
 <container qualifier="jboss" default="true">
     <configuration>
-        <property name="managementAddress">${arquillian.docker.address}</property>
+        <property name="managementAddress">api-team-1.jenkins-enterprise.dev.beedemo.io</property>
         <property name="managementPort">9990</property>
         <property name="username">admin</property>
         <property name="password">Admin#70365</property>
