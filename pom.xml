@@ -153,16 +153,23 @@
         <extensions>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-file</artifactId>
-                <version>1.0-beta-3</version>
+                <artifactId>wagon-ssh</artifactId>
+                <version>1.0-beta-6</version>
             </extension>
         </extensions>
+        
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>1.0-beta-3</version>
+                <configuration>
+                    <fromFile>${project.build.directory}/${project.build.finalName}.war</fromFile>
+                    <url>scp://nexus.nexus.dev.wildfly.io:8081/nexus/content/repositories/wildfly-release/</url>
+                    <toDir>.</toDir>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
-    <distributionManagement>
-        <repository>
-            <id>wildfly-release</id>
-            <name>wildfly-release</name>
-            <url>nexus.nexus.dev.wildfly.io:8081/nexus/content/repositories/wildfly-release/</url>
-        </repository>
-    </distributionManagement>
+
 </project>
