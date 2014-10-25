@@ -81,19 +81,10 @@
         <profile>
             <id>arq-jbossas-managed</id>
             <dependencies>
-                <dependency>
-                    <groupId>org.jboss.as</groupId>
-                    <artifactId>jboss-as-arquillian-containermanaged</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <id>arq-jbossas-remote</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.jboss.as</groupId>
-                    <artifactId>jboss-as-arquillian-containerremote</artifactId>
+                <<dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-arquillian-container-managed</artifactId>
+                    <version>8.1.0.Final</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
