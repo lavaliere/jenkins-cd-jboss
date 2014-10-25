@@ -1,28 +1,12 @@
-<!--
- 
- <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<arquillian xmlns="http://jboss.org/schema/arquillian" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- <arquillian xmlns="http://jboss.org/schema/arquillian" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
  <container qualifier="arquillian-wildfly-remote"/>
  </arquillian>
-
+ -->
 <arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://jboss.org/schema/arquillian"
     xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
     
     <engine>
         <property name="deploymentExportPath">target/</property>
     </engine>
-</arquillian>
--->
-<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="http://jboss.org/schema/arquillian"
-    xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
-    <defaultProtocol type="Servlet 3.0" />
-    <container qualifier="arq-jbossas-managed" default="true">
-        <engine>
-            <property name="deploymentExportPath">target/</property>
-        </engine>
-        <configuration>
-            <property name="jbossHome">/data/var/lib/jenkins/api-team/wildfly-8.1.0.Final</property>
-        </configuration>
-    </container>
 </arquillian>
