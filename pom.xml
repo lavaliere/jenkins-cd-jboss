@@ -89,6 +89,13 @@
 				</dependency>
 			</dependencies>
 			<build>
+                <extensions>
+                    <extension>
+                        <groupId>org.apache.maven.wagon</groupId>
+                        <artifactId>wagon-ftp</artifactId>
+                        <version>1.0-beta-2</version>
+                    </extension>
+                </extensions>
 				<plugins>
 					<!-- You need the maven dependency plugin to download locally a zip with the server, unless you provide your own, it will download under the /target directory -->
                     <plugin>
