@@ -148,19 +148,16 @@
 				</plugins>
 			</build>
 		</profile>
-        <profile>
-            <build>
-                <extensions>
-                    <extension>
-                        <groupId>org.apache.maven.wagon</groupId>
-                        <artifactId>wagon-file</artifactId>
-                        <version>1.0-beta-3</version>
-                    </extension>
-                </extensions>
-            </build>
-        </profile>
-        
 	</profiles>
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-file</artifactId>
+                <version>1.0-beta-3</version>
+            </extension>
+        </extensions>
+    </build>
     <distributionManagement>
         <repository>
             <id>wildfly-release</id>
