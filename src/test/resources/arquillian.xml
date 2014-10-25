@@ -17,12 +17,9 @@
     xmlns="http://jboss.org/schema/arquillian"
     xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
    <defaultProtocol type="Servlet 3.0" />
-    <container qualifier="arq-jbossas-managed" default="true">
+    <container qualifier="wildfy81-embedded" default="true">
         <engine>
             <property name="deploymentExportPath">target/</property>
         </engine>
-        <configuration>
-            <property name="jbossHome">/data/var/lib/jenkins/api-team/wildfly-8.1.0.Final</property>
-        </configuration>
     </container>
 </arquillian>
