@@ -206,6 +206,27 @@
                 <version>2.7</version>
             </extension>
         </extensions>
+        <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-provider-api</artifactId>
+            <version>2.7</version>
+        </extension>
+        <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-ssh-external</artifactId>
+            <version>2.7</version>
+        </extension>
+        <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-providers</artifactId>
+            <version>2.7</version>
+        </extension>
+        <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon</artifactId>
+            <version>2.7</version>
+        </extension>
+        
     </build>
     <distributionManagement>
         <!-- use the following if you're not using a snapshot version. -->
