@@ -226,6 +226,11 @@
             <artifactId>wagon</artifactId>
             <version>2.7</version>
         </extension>
+        <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-ssh-external</artifactId>
+            <version>1.0-beta-6</version>
+        </extension>
         
     </build>
     <distributionManagement>
@@ -233,7 +238,7 @@
         <repository>
             <id>wildfly-release</id>
             <name>wildfly-release</name>
-            <url>nexus.nexus.dev.wildfly.io:8081/nexus/content/repositories/wildfly-release/</url>
+            <url>http://nexus.nexus.dev.wildfly.io:8081/nexus/content/repositories/wildfly-release/</url>
         </repository>
     </distributionManagement>
 </project>
