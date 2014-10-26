@@ -73,7 +73,7 @@
 		</dependency>
 	</dependencies>
 	<profiles>
-		<profile>
+        <profile>
 			<id>wildfy81-embedded</id>
 			<!-- the dependencies for Wildfly8.1  -->
 			<dependencies>
@@ -220,6 +220,27 @@
         </extensions>
         
         -->
+        <plugins>
+            <plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>1.0.0.Final</version>
+				<configuration>
+					<hostname>wildfly-1.wildfly.dev.beedemo.io</hostname>
+					<port>9990</port>
+					<username>alexis</username>
+					<password>hassler</password>
+				</configuration>
+				<executions>
+					<execution>
+                        <!-- <phase>package</phase> -->
+                        <!-- <goals> -->
+                        <!-- 	<goal>deploy</goal> -->
+                        <!-- </goals> -->
+					</execution>
+				</executions>
+			</plugin>
+        </plugins>
     </build>
     <distributionManagement>
         <!-- use the following if you're not using a snapshot version. -->
