@@ -155,6 +155,33 @@
 				</plugins>
 			</build>
 		</profile>
+        <profile>
+            <id>releases</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.4.4</version>
+                        <executions>
+                            <execution>
+                                <id>default-deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <serverId>wildfly-release</serverId>
+                            <nexusUrl>nexus.nexus.dev.wildfly.io:8081/nexus/content/repositories/wildfly-release/</nexusUrl>
+                            <skipStaging>true</skipStaging>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
 	</profiles>
     <build>
         <extensions>
