@@ -210,7 +210,7 @@
     <distributionManagement>
         <!-- use the following if you're not using a snapshot version. -->
         <repository>
-            <id>nexus</id>
+            <id>wildfly-release</id>
             <name>wildfly-release</name>
             <url>nexus.nexus.dev.wildfly.io:8081/nexus/content/repositories/wildfly-release/</url>
         </repository>
