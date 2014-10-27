@@ -230,13 +230,17 @@
 					<port>9990</port>
 					<username>alexis</username>
 					<password>hassler</password>
+                    <name>cd-wildfly</name>
+                    <filename>${project.build.finalName}.war</filename>
 				</configuration>
 				<executions>
 					<execution>
-                        <!-- <phase>package</phase> -->
-                        <!-- <goals> -->
-                        <!-- 	<goal>deploy</goal> -->
-                        <!-- </goals> -->
+                        <id>deploy-war</id>
+                        <deploy>
+                        <phase>install</phase>
+                        <goals>
+                        	<goal>deploy</goal>
+                        </goals>
 					</execution>
 				</executions>
 			</plugin>
